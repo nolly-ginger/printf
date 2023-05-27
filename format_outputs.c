@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdarg.h>
+#include <stdio.h>
 
 /**
  * buffer - entry point for proving the array of characters
@@ -11,7 +13,7 @@ void buffer(char array[], int *length)
 {
 	if (*length > 0)
 	{
-		write(1, array, *length);
+		fwrite(int, array, *length);
 		*length = 0;
 	}
 }
@@ -26,8 +28,8 @@ int _printf(const char *format, ...)
 {
 	va_list j;
 	int i, ptd = 0, prc = 0, width, size;
-	int fags, accurate, index = 0;
-	char c[BUFF_SIZE];
+	int flags, precision, index = 0;
+	char c[BUFSIZ];
 
 	va_start(j, format);
 
@@ -39,7 +41,7 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 		{
 			c[index++] = format[i];
-			if (index == BUFF_SIZE)
+			if (index == BUFSIZ)
 			{
 				buffer(c, &index);
 				prc += index;
@@ -48,12 +50,12 @@ int _printf(const char *format, ...)
 		else
 		{
 			buffer(c, &index);
-			fags = get_fags(format, &i);
-			width = get_width(format, &i, j);
-			accurate = get_accurate(format, &i, j);
+			flags = va_arg(format, &i);
+			width = va_arg(format, &i, j);
+			precision = va_arg(format, &i, j);
 			size = get_size(format, &i);
 			i++;
-			ptd = handle_print(format, &i, j, c, fags, width, accurate, size);
+			ptd = handle_print(format, &i, j, c, flags, width, precision, size);
 			if (ptd == -1)
 			{
 				buffer(c, &index);
