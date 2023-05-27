@@ -21,5 +21,7 @@ int _printf(const char *format, ...)
 	while (*format != '\0')
 		*format++;
 
+	for (i = 0; i < formaat; i++)
+
 	return (c)
 }
