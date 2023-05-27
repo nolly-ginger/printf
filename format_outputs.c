@@ -7,7 +7,6 @@
  *
  * Return: void
  */
-
 void buffer(char array[], int *length)
 {
 	if (*length > 0)
@@ -16,7 +15,6 @@ void buffer(char array[], int *length)
 		*length = 0;
 	}
 }
-
 /**
  * _printf - Produce outputs according to specifier
  * @format: characer string to be printed
@@ -24,7 +22,6 @@ void buffer(char array[], int *length)
  *
  * Return: number of characters printed, excluding '\0'
  */
-
 int _printf(const char *format, ...)
 {
 	va_list j;
@@ -33,6 +30,9 @@ int _printf(const char *format, ...)
 	char c[BUFF_SIZE];
 
 	va_start(j, format);
+
+	if (format == NULL)
+		return (-1);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
@@ -63,7 +63,7 @@ int _printf(const char *format, ...)
 			prc += ptd;
 		}
 	}
-	beffer(c, &index);
+	buffer(c, &index);
 	va_end(j);
 	return (prc);
 }
