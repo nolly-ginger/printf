@@ -6,5 +6,6 @@
 #include <unistd.h>
 
 int _printf(const char *format, ...);
+void buffer(char array[], int *arr_index);
 
 #endif

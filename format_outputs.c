@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdarg.h>
+#include <stdio.h>
 
 /**
  * buffer - output of contents being printed to buffer
@@ -12,6 +14,7 @@ void buffer(char array[], int *arr_index)
 {
 	if (*arr_index > 0)
 		write(1, &array[0], *arr_index);
+
 	*arr_index = 0;
 }
 
@@ -27,7 +30,7 @@ int _printf(const char *format, ...)
 {
 	int i, k = 0, p = 0, flags;
 	int width, precision, size, arr_index = 0;
-	vi_list j;
+	va_list j;
 	char c[BUFF_SIZE];
 
 	if (format == NULL)
@@ -39,7 +42,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			c[arr_index++] = formar[i];
+			c[arr_index++] = format[i];
 			if (arr_index == BUFF_SIZE)
 			{
 				buffer(c, &arr_index);
@@ -53,7 +56,7 @@ int _printf(const char *format, ...)
 			width = get_width(format, &i, j);
 			precision = get_precision(format, &i, j);
 			size = get_size(format, &i);
-			i++;
+			++i;
 			k = handle_print(format, &i, j, c, flags, width, precision, size);
 
 			if (k == -1)
