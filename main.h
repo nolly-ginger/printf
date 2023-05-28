@@ -28,7 +28,7 @@ int hexa_int(va_list types, char buffer[], char map_to[],
 int printable(char p);
 int hexa_code(char code, char array[], int j);
 int verify(char d);
-long int convert_nr(long in nr, int size);
+long int convert_nr(long int nr, int size);
 long int convert_specific(unsigned long int nr, int size);
 
 #endif

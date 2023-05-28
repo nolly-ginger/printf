@@ -66,7 +66,7 @@ int verify(char d)
  * Return: new value of nr
  */
 
-long int convert_nr(long in nr, int size)
+long int convert_nr(long int nr, int size)
 {
 	if (size == S_LONG)
 		return (nr);
