@@ -94,8 +94,8 @@ int octal_int(va_list types, char buffer[],
 int int_hex(va_list types, char buffer[],
 		int flags, int width, int precision, int size)
 {
-	return (print_hexa(types, "0123456789abcdef",
-				buffer, flas, 'x', width, precision, size));
+	return (print_hexa(types, "0123456789abcdef", buffer,
+				flags, 'x', width, precision, size));
 }
 
 /**
@@ -113,8 +113,8 @@ int int_hex(va_list types, char buffer[],
 int upper_hexa_int(va_list types, char buffer[],
 		flags, width, precision, size)
 {
-	return (print_hexa(types, "0123456789ABCDEF",
-				buffer, flags, 'X', width, precision, size));
+	return (print_hexa(types, "0123456789ABCDEF", buffer,
+				flags, 'X', width, precision, size));
 }
 
 /**
