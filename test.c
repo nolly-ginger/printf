@@ -3,10 +3,10 @@
 
 int main(void)
 {
-	int ptd;
+	int tester;
 
-	prc = printf("Standard input is represented by 0\n");
-	printf("prc is %d\n", prc);
+	tester = printf("Standard input is represented by 0\n");
+	printf("tester is %d\n", tester);
 
 	return (0);
 }
