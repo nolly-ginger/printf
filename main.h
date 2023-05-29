@@ -43,5 +43,6 @@ int verify(char d);
 long int convert_nr(long int nr, int size);
 long int convert_specific(unsigned long int nr, int size);
 int flag_characters(const char *sent, int *p);
+int width_ch(const char *str, int *argu, va_list list);
 
 #endif /* MAIN_H */
