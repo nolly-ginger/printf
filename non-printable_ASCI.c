@@ -38,7 +38,7 @@ int hexa_code(char code, char array[], int j)
 	array[i++] = 'x';
 
 	array[i++] = map_to[code / 16];
-	array[i++] = map_to[code % 16];
+	array[i] = map_to[code % 16];
 
 	return (3);
 }
