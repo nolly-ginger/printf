@@ -21,6 +21,24 @@
 #define S_SHORT 1
 #define S_LONG 2
 
+/**
+ * struct fmt - The operator for the structures
+ * @fmt: format
+ * @func: function
+ */
+
+struct fmt
+{
+	char fmt;
+	int (*func)(va_list, char[], int, int, int, int);
+};
+
+/**
+ * typedef struct fmt fmt_t - Inpute for structure operations
+ * @func: Functions associated to the fmt_t
+ */
+typedef struct fmt fmt_t;
+
 /* function prototypes */
 int _printf(const char *format, ...);
 void buffer(char array[], int *arr_index);
