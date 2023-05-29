@@ -18,11 +18,11 @@ int _putchar(char c)
  */
 int printf_i(va_list args)
 {
-	int a = va_arg(args, int);
+	int i = va_arg(args, int);
 	int n, n2 = n % 10, n3, value = 1;
 	int a = 1;
 
-	i = n / 10;
+	i = i / 10;
 	n = i;
 	if (n2 < 0)
 	{
@@ -34,6 +34,12 @@ int printf_i(va_list args)
 	}
 	if (n > 0)
 	{
+		while (n / 10 != 0)
+		{
+			value = value * 10;
+			n = n / 10;
+		}
+		n = i;
 		while (value > 0)
 		{
 			n3 = n / value;

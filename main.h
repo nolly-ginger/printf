@@ -10,6 +10,7 @@
 /* function prototypes */
 int _printf(const char *format, ...);
 int _putchar(char c);
-int print_i(va_list args);
+int printf_i(va_list args);
+int printf_d(va_list args);
 
 #endif /* MAIN_H */
