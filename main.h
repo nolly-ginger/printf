@@ -39,6 +39,9 @@ struct fmt
  */
 typedef struct fmt fmt_t;
 
+int print_all(const char *fmt, int index, va_list args, char buf[],
+		int flags, int width, int precision, int size);
+
 /* function prototypes */
 int _printf(const char *format, ...);
 void buffer(char array[], int *arr_index);
@@ -66,5 +69,13 @@ int _precision(const char *format, int *index, va_list args);
 int get_size(const char *format, int *index);
 int print_all(const char *fmt, int *index, va_list args, char buf[],
 		int flags, int width, int precision, int size);
+int print_pointer(va_list args, char buffer[], int flags, int width,
+		int precision, int size);
+int print_non_printable(va_list args, char buffer[], int flags,
+		int width, int precision, int size);
+int print_reverse(va_list args, char buffer[], int flags, int width,
+		int precision, int size);
+int print_rot13string(va_list args, char buffer[], int flags, int width,
+		int precision, int size);
 
 #endif /* MAIN_H */
