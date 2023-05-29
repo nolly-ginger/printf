@@ -44,5 +44,9 @@ long int convert_nr(long int nr, int size);
 long int convert_specific(unsigned long int nr, int size);
 int flag_characters(const char *sent, int *p);
 int width_ch(const char *str, int *argu, va_list list);
+int _precision(const char *format, int *index, va_list args);
+int get_size(const char *format, int *index);
+int print_all(const char *fmt, int *index, va_list args, char buf[],
+		int flags, int width, int precision, int size);
 
 #endif /* MAIN_H */
