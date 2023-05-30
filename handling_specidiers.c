@@ -18,7 +18,7 @@ int unsigned_int(va_list types, char buffer[],
 	int i = BUFF_SIZE - 2;
 	unsigned long int nr = va_arg(types, unsigned long int);
 
-	nr = convert_size_unsgnd(nr, size);
+	nr = convert_specific(nr, size);
 
 	if (nr == 0)
 		buffer[i--] = '0';
@@ -32,7 +32,8 @@ int unsigned_int(va_list types, char buffer[],
 	}
 	i++;
 
-	return (write(0, i, buffer, flags, width, precision, size));
+	return (print_unsigned_number(0, i, buffer, flags, width,
+				precision, size));
 }
 
 /**
@@ -56,7 +57,7 @@ int octal_int(va_list types, char buffer[],
 
 	UNUSED(width);
 
-	nr = convert_size_unsgnd(nr, size);
+	nr = convert_specific(nr, size);
 
 	if (nr == 0)
 		buffer[i--] = '0';
@@ -66,7 +67,7 @@ int octal_int(va_list types, char buffer[],
 	while (nr > 0)
 	{
 		buffer[i--] = (nr % 8) + '0';
-		num /= 8;
+		nr /= 8;
 	}
 
 	if (flags & F_HASH && nr2 != 0)
@@ -74,7 +75,7 @@ int octal_int(va_list types, char buffer[],
 
 	i++;
 
-	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
+	return (print_unsigned_number(0, i, buffer, flags, width, precision, size));
 }
 
 /**
@@ -92,7 +93,7 @@ int octal_int(va_list types, char buffer[],
 int int_hex(va_list types, char buffer[],
 		int flags, int width, int precision, int size)
 {
-	return (print_hexa(types, "0123456789abcdef", buffer,
+	return (hexa_int(types, "0123456789abcdef", buffer,
 				flags, 'x', width, precision, size));
 }
 
@@ -111,7 +112,7 @@ int int_hex(va_list types, char buffer[],
 int upper_hexa_int(va_list types, char buffer[],
 		int flags, int width, int precision, int size)
 {
-	return (print_hexa(types, "0123456789ABCDEF", buffer,
+	return (hexa_int(types, "0123456789ABCDEF", buffer,
 				flags, 'X', width, precision, size));
 }
 
@@ -138,7 +139,7 @@ int hexa_int(va_list types, char buffer[], char map_to[],
 
 	UNUSED(width);
 
-	nr = conver_size_unsgnd(nr, size);
+	nr = convert_specific(nr, size);
 
 	if (nr == 0)
 		buffer[i--] = '0';
@@ -159,5 +160,5 @@ int hexa_int(va_list types, char buffer[], char map_to[],
 
 	i++;
 
-	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
+	return (print_unsigned_number(0, i, buffer, flags, width, precision, size));
 }

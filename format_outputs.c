@@ -52,6 +52,7 @@ int _printf(const char *format, ...)
 	va_end(j);
 	return (p);
 }
+
 /**
  * buffer - output of contents being printed to buffer
  * @array: array of buffer
@@ -59,7 +60,7 @@ int _printf(const char *format, ...)
  *
  * Return: void
  */
-void buffer(cahr array[], int *arr_index)
+void buffer(char array[], int *arr_index)
 {
 	if (*arra_index > 0)
 		write(1, &array[0], *arr_index);
