@@ -11,7 +11,7 @@
  * @precision: the precision
  * @size: the size
  *
- * Returnn: the character number printed
+ * Return: the character number printed
  */
 
 int unsigned_int(va_list types, char buffer[],
@@ -46,7 +46,7 @@ int unsigned_int(va_list types, char buffer[],
  * @precision: the precision
  * @size: the size
  *
- * Returnn: the character number printed
+ * Return: the character number printed
  */
 
 int octal_int(va_list types, char buffer[],
@@ -88,7 +88,7 @@ int octal_int(va_list types, char buffer[],
  * @precision: the precision
  * @size: the size
  *
- * Returnn: the character number printed
+ * Return: the character number printed
  */
 
 int int_hex(va_list types, char buffer[],
@@ -107,7 +107,7 @@ int int_hex(va_list types, char buffer[],
  * @precision: the precision
  * @size: the size
  *
- * Returnn: the character number printed
+ * Return: the character number printed
  */
 
 int upper_hexa_int(va_list types, char buffer[],
@@ -128,7 +128,7 @@ int upper_hexa_int(va_list types, char buffer[],
  * @precision: the precision
  * @size: the size specifier
  *
- * Returnn: the character number printed
+ * Return: the character number printed
  */
 
 int hexa_int(va_list types, char buffer[], char map_to[],
