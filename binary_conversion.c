@@ -120,11 +120,7 @@ int integer_argu(va_list types, char buffer[],
 	long int j = va_arg(types, long int);
 	unsigned long int nr;
 
-<<<<<<< HEAD
-	j = convert_specific(j, size);
-=======
 	j = convert_nr(j, size);
->>>>>>> 3f25325b062bacbb57127a71c93440c3cd811f20
 
 	if (j == 0)
 		buffer[i--] = '0';
@@ -134,11 +130,7 @@ int integer_argu(va_list types, char buffer[],
 
 	if (j < 0)
 	{
-<<<<<<< HEAD
 		nr = (unsigned long int)((-1) * j);
-=======
-		(unsigned long int)((-1) * j);
->>>>>>> 3f25325b062bacbb57127a71c93440c3cd811f20
 		neg_nr = 1;
 	}
 
@@ -148,12 +140,7 @@ int integer_argu(va_list types, char buffer[],
 		nr /= 10;
 	}
 	i++;
-
-<<<<<<< HEAD
-	return (write(neg_nr, i, buffer, flags, width, precision, size));
-=======
 	return (print_number(neg_nr, i, buffer, flags, width, precision, size));
->>>>>>> 3f25325b062bacbb57127a71c93440c3cd811f20
 }
 
 /**
