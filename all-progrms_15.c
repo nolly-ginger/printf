@@ -26,7 +26,7 @@ int print_all(const char *fmt, int *index, va_list args, char buf[],
 		{'u', unsigned_int}, {'o', octal_int}, {'x', int_hex},
 		{'X', upper_hexa_int}, {'p', print_pointer},
 		{'S', print_non_printable}, {'r', print_reverse},
-		{'R', print_rot_rot13string}, {'\0', NULL}
+		{'R', print_rot13string}, {'\0', NULL}
 	};
 	for (i = 0; fmt_types[i].fmt != '\0'; i++)
 	{
