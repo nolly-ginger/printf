@@ -10,7 +10,7 @@
  * 0 if it is not printable
  */
 
-int printable(char p)
+int is_digit(char p)
 {
 	if (p >= 32 && p < 127)
 		return (1);

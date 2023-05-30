@@ -186,7 +186,7 @@ int print_unsigned_number(int is_negative, int index, char buffer[],
  * @padd_start: start of padding
  * Return: number of chars printed
  */
-int print_pointer(char buffer[], int index, int length, int width,
+int pri_pointer(char buffer[], int index, int length, int width,
 		int flags, char padd, char extra_chars,
 		int padd_start)
 {

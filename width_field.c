@@ -13,7 +13,7 @@
 
 int width_ch(const char *str, int *argu, va_list list)
 {
-	int i, j = 0;
+	int i, width = 0;
 
 	for (i = *argu + 1; str[i] != '\0'; i++)
 	{

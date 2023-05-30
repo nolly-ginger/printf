@@ -1,4 +1,4 @@
-#include "main.c"
+#include "main.h"
 
 /**
  * get_size - calculates size to cast the arg based on the format
