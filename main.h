@@ -77,5 +77,17 @@ int print_reverse(va_list args, char buffer[], int flags, int width,
 		int precision, int size);
 int print_rot13string(va_list args, char buffer[], int flags, int width,
 		int precision, int size);
+int print_char(char c, char buffer[], int flags, int width,
+		int precision, int size);
+int print_number(int is_negative, int index, char buffer[],
+                int flags, int width, int precision, int size);
+int print_num(int index, char buffer[], int flags, int width,
+                int precision, int length, char padd,
+                char extra_chars);
+int print_unsigned_number(int is_negative, int index, char buffer[],
+                int flags, int width, int precision, int size);
+int print_pointer(char buffer[], int index, int length, int width,
+                int flags, char padd, char extra_chars,
+                int padd_start);
 
 #endif /* MAIN_H */
