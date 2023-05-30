@@ -69,8 +69,9 @@ long int convert_nr(long int nr, int size)
 	if (size == S_LONG)
 		return (nr);
 	else if (size == S_SHORT)
-		return ((short(nr));
-
+	{
+		return ((short)nr);
+	}
 	return ((int)nr);
 }
 

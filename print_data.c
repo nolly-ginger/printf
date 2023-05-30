@@ -158,7 +158,7 @@ int print_unsigned_number(int is_negative, int index, char buffer[],
 		padd = '0';
 	if (width > len)
 	{
-		for (i = 0; i < width - len++; i)
+		for (i = 0; i < width - len; i++)
 			buffer[i] = padd;
 		buffer[i] = '\0';
 		if (flags & F_MINUS)
@@ -168,7 +168,8 @@ int print_unsigned_number(int is_negative, int index, char buffer[],
 		}
 		else
 		{
-			return (write(1, &buffer[0], i) + write(1, buffer[index], len));
+			return (write(1, &buffer[0], i) +
+					write(1, &buffer[index], len));
 		}
 	}
 	return (write(1, &buffer[index], len));
