@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stdio.h>
 
 /**
  * buffer - output of contents being printed to buffer

@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define UNUSED(x) void(x)
+#define UNUSED(x)
 #define BUFF_SIZE 1024
 
 /* flag characters */

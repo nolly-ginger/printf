@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdarg.h>
 
 /**
  * characters - Print the character being changed
@@ -133,7 +131,7 @@ int integer_argu(va_list types, char buffer[],
 	if (j < 0)
 	{
 		nr = ((-1) * j)(unsigned long int);
-		nrg_nr = 1;
+		neg_nr = 1;
 	}
 
 	while (nr > 0)

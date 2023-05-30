@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdarg.h>
 
 /**
  * unsigned_int - Print the unsigned integer value
@@ -34,7 +32,7 @@ int unsigned_int(va_list types, char buffer[],
 	}
 	i++;
 
-	return (write(0, nr, i, buffer, flags, width, precision, size));
+	return (write(0, i, buffer, flags, width, precision, size));
 }
 
 /**
@@ -76,7 +74,7 @@ int octal_int(va_list types, char buffer[],
 
 	i++;
 
-	return (write_unsgnd(0, nr, i, buffer, flags, width, precision, size));
+	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 }
 
 /**
@@ -161,5 +159,5 @@ int hexa_int(va_list types, char buffer[], char map_to[],
 
 	i++;
 
-	return (write_unsgnd(0, nr, i, buffer, flags, width, precision, size));
+	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 }

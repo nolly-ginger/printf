@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stdio.h>
 
 /**
  * width_ch - Finding with of the printed character
