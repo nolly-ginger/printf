@@ -26,11 +26,11 @@ int print_pointer(va_list args, char buffer[], int flags,
 		return (write(1, "nil)", 5));
 	buffer[BUFF_SIZE - 1] = '\0';
 	UNUSED(precision);
-	address = (unsigned long)address;
-	while (address > 0)
+	n_address = (unsigned long)address;
+	while (n_address > 0)
 	{
-		buffer[index--] hex_map[][address % 16];
-		address /= 16;
+		buffer[index--] = hex_map[n_address % 16];
+		n_address /= 16;
 		length++;
 	}
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
@@ -40,7 +40,7 @@ int print_pointer(va_list args, char buffer[], int flags,
 	else if (flags & F_SPACE)
 		extra_char = ' ', length++;
 	index++;
-	return (write_pointer(buffer, index, length, width, flags
+	return (pri_pointer(buffer, index, length, width, flags,
 				padd_char, extra_char, padd_start));
 }
 
