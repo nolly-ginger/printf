@@ -34,7 +34,7 @@ int unsigned_int(va_list types, char buffer[],
 	}
 	i++;
 
-	return (write(0, i, buffer, flags, width, precision, size));
+	return (write(0, nr, i, buffer, flags, width, precision, size));
 }
 
 /**
@@ -76,7 +76,7 @@ int octal_int(va_list types, char buffer[],
 
 	i++;
 
-	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
+	return (write_unsgnd(0, nr, i, buffer, flags, width, precision, size));
 }
 
 /**
@@ -111,7 +111,7 @@ int int_hex(va_list types, char buffer[],
  */
 
 int upper_hexa_int(va_list types, char buffer[],
-		flags, width, precision, size)
+		int flags, int width, int precision, int size)
 {
 	return (print_hexa(types, "0123456789ABCDEF", buffer,
 				flags, 'X', width, precision, size));
@@ -120,13 +120,13 @@ int upper_hexa_int(va_list types, char buffer[],
 /**
  * hexa_int - Print the integer in lower or lower hex notation
  * @map_to: array value mapping numbers
- * flag_ch: active flasg in full
+ * @flag_ch: active flasg in full
  * @types: arguments
  * @buffer: array of buffer
  * @flags: flags
  * @width: the width
  * @precision: the precision
- * @size: the size
+ * @size: the size specifier
  *
  * Returnn: the character number printed
  */
@@ -161,5 +161,5 @@ int hexa_int(va_list types, char buffer[], char map_to[],
 
 	i++;
 
-	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
+	return (write_unsgnd(0, nr, i, buffer, flags, width, precision, size));
 }
