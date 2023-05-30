@@ -31,7 +31,7 @@ int print_all(const char *fmt, int *index, va_list args, char buf[],
 	for (i = 0; fmt_types[i].fmt != '\0'; i++)
 	{
 		if (fmt[*index] == fmt_types[i].fmt)
-			return (fmt_types[i].fn(args, buf, flags, width, precision, size));
+			return (fmt_types[i].func(args, buf, flags, width, precision, size));
 	}
 	if (fmt_types[i].fmt == '\0')
 	{

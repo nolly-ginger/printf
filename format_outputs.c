@@ -1,20 +1,6 @@
 #include "main.h"
 
-/**
- * buffer - output of contents being printed to buffer
- * @array: array of buffer
- * @arr_index: index of the printing out the next character
- *
- * Return: void
- */
-
-void buffer(char array[], int *arr_index)
-{
-	if (*arr_index > 0)
-		write(1, &array[0], *arr_index);
-
-	*arr_index = 0;
-}
+void buffer(char array[], int *array_index)
 
 /**
  * _printf - returning the number of characters printed
@@ -23,11 +9,10 @@ void buffer(char array[], int *arr_index)
  *
  * Return: number of characters printed
  */
-
 int _printf(const char *format, ...)
 {
-	int i, k = 0, p = 0, flags;
-	int width, precision, size, arr_index = 0;
+	int i, k = 0, p = 0;
+	int flags, width, precision, size, arr_index = 0;
 	va_list j;
 	char c[BUFF_SIZE];
 
@@ -50,12 +35,12 @@ int _printf(const char *format, ...)
 		else
 		{
 			buffer(c, &arr_index);
-			flags = get_flags(format, &i);
-			width = get_width(format, &i, j);
-			precision = get_precision(format, &i, j);
+			flags = flag_characters(format, &i);
+			width = width_ch(format, &i, j);
+			precision = _precision(format, &i, j);
 			size = get_size(format, &i);
 			++i;
-			k = handle_print(format, &i, j, c, flags, width, precision, size);
+			k = print_all(format, &i, j, c, flags, width, precision, size);
 
 			if (k == -1)
 				return (-1);
@@ -66,4 +51,17 @@ int _printf(const char *format, ...)
 	buffer(c, &arr_index);
 	va_end(j);
 	return (p);
+}
+/**
+ * buffer - output of contents being printed to buffer
+ * @array: array of buffer
+ * @arr_index: index of the printing out the next charecter
+ *
+ * Return: void
+ */
+void buffer(cahr array[], int *arr_index)
+{
+	if (*arra_index > 0)
+		write(1, &array[0], *arr_index);
+	*arr_index = 0;
 }
