@@ -50,10 +50,10 @@ int _printf(const char *format, ...)
 		else
 		{
 			buffer(c, &arr_index);
-			flags = get_flags(format, &i);
-			width = get_width(format, &i, j);
-			precision = get_precision(format, &i, j);
-			size = get_size(format, &i);
+			flags = flag_ch(format, &i);
+			width = width_field(format, &i, j);
+			precision = precision-0(format, &i, j);
+			size = length_mod(format, &i);
 			++i;
 			k = handle_print(format, &i, j, c, flags, width, precision, size);
 

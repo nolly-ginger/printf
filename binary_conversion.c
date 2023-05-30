@@ -17,7 +17,7 @@ int character(va_list types, char buffer[],
 {
 	char nr = va_arg(types, int);
 
-	return (handle_write_char(nr, buffer, flags, width, precision, size));
+	return (print_char(nr, buffer, flags, width, precision, size));
 }
 
 /**
@@ -120,17 +120,17 @@ int integer_argu(va_list types, char buffer[],
 	long int j = va_arg(types, long int);
 	unsigned long int nr;
 
-	j = convert_size_number(j, size);
+	j = convert_specific(j, size);
 
 	if (j == 0)
 		buffer[i--] = '0';
 
 	buffer[BUFF_SIZE - 1] = '\0';
-	nr = j(unsigned long int);
+	nr = (unsigned long int)j;
 
 	if (j < 0)
 	{
-		nr = ((-1) * j)(unsigned long int);
+		nr = (unsigned long int)((-1) * j);
 		neg_nr = 1;
 	}
 
@@ -141,7 +141,7 @@ int integer_argu(va_list types, char buffer[],
 	}
 	i++;
 
-	return (write(neg_nr, i buffer, flags, width, precision, size));
+	return (write(neg_nr, i, buffer, flags, width, precision, size));
 }
 
 /**

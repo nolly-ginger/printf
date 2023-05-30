@@ -29,7 +29,7 @@ int print_pointer(va_list args, char buffer[], int flags,
 	address = (unsigned long)address;
 	while (address > 0)
 	{
-		buffer[index--] hex_map[][address % 16];
+		buffer[index--] = hex_map[address % 16];
 		address /= 16;
 		length++;
 	}
@@ -40,7 +40,7 @@ int print_pointer(va_list args, char buffer[], int flags,
 	else if (flags & F_SPACE)
 		extra_char = ' ', length++;
 	index++;
-	return (write_pointer(buffer, index, length, width, flags
+	return (write_pointer(buffer, index, length, width, flags,
 				padd_char, extra_char, padd_start));
 }
 
@@ -69,10 +69,10 @@ int print_non_printable(va_list args, char buffer[], int flags,
 		return (write(1, "(NULL)", 6));
 	while (str[i] != '\0')
 	{
-		if (is_printable(str[i]))
+		if (is_digit(str[i]))
 			buffer[i + offset] = str[i];
 		else
-			offset += append_hexa_code(str[i], buffer, i + offset);
+			offset += hexa_code(str[i], buffer, i + offset);
 		i++;
 	}
 	buffer[i + offset] = '\0';
@@ -107,7 +107,7 @@ int print_reverse(va_list args, char buffer[], int flags,
 	}
 	for (i = 0; str[i]; i++)
 		;
-	for (i = i - 1, i >= 0; i--)
+	for (i = i - 1; i >= 0; i--)
 	{
 		char z = str[i];
 
