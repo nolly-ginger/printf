@@ -26,10 +26,10 @@ int print_pointer(va_list args, char buffer[], int flags,
 		return (write(1, "nil)", 5));
 	buffer[BUFF_SIZE - 1] = '\0';
 	UNUSED(precision);
-	n_address = (unsigned long)address;
-	while (n_address > 0)
+	address = (unsigned long)address_n;
+	while (address > 0)
 	{
-		buffer[index--] = hex_map[n_address % 16];
+		buffer[index--] = hex_map[address % 16];
 		n_address /= 16;
 		length++;
 	}
