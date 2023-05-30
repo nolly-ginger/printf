@@ -35,10 +35,17 @@ int _printf(const char *format, ...)
 		else
 		{
 			buffer(c, &arr_index);
+<<<<<<< HEAD
+			flags = flag_ch(format, &i);
+			width = width_field(format, &i, j);
+			precision = precision-0(format, &i, j);
+			size = length_mod(format, &i);
+=======
 			flags = flag_characters(format, &i);
 			width = width_ch(format, &i, j);
 			precision = _precision(format, &i, j);
 			size = get_size(format, &i);
+>>>>>>> 3f25325b062bacbb57127a71c93440c3cd811f20
 			++i;
 			k = print_all(format, &i, j, c, flags, width, precision, size);
 
