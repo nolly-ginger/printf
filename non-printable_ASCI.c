@@ -32,11 +32,11 @@ int hexa_code(char code, char array[], int j)
 	if (code < 0)
 		code *= -1;
 
-	array[i++] = '\\';
-	array[i++] = 'x';
+	array[j++] = '\\';
+	array[j++] = 'x';
 
-	array[i++] = map_to[code / 16];
-	array[i] = map_to[code % 16];
+	array[j++] = map_to[code / 16];
+	array[j] = map_to[code % 16];
 
 	return (3);
 }
@@ -69,7 +69,7 @@ long int convert_nr(long int nr, int size)
 	if (size == S_LONG)
 		return (nr);
 	else if (size == S_SHORT)
-		return (short(nr));
+		return ((short(nr));
 
 	return ((int)nr);
 }
