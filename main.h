@@ -77,6 +77,7 @@ int print_reverse(va_list args, char buffer[], int flags, int width,
 		int precision, int size);
 int print_rot13string(va_list args, char buffer[], int flags, int width,
 		int precision, int size);
+<<<<<<< HEAD
 int print_char(char c, char buffer[], int flags, int width,
 		int precision, int size);
 int print_number(int is_negative, int index, char buffer[],
@@ -89,5 +90,17 @@ int print_unsigned_number(int is_negative, int index, char buffer[],
 int print_pointer(char buffer[], int index, int length, int width,
                 int flags, char padd, char extra_chars,
                 int padd_start);
+=======
+int character(va_list types, char buffer[],
+		int flags, int width, int precision, int size);
+int char_string(va_list types, char buffer[],
+		int flags, int width, int precision, int size);
+int express_percent(va_list types, char buffer[],
+		int flags, int width, int precision, int size);
+int integer_argu(va_list types, char buffer[],
+		int flags, int width, int precision, int size);
+int convert_to_binary(va_list types, char buffer[],
+		int flags, int width, int precision, int size);
+>>>>>>> efe2de8811f2f5a42b1a8bc6ae2fa7b748519df3
 
 #endif /* MAIN_H */
