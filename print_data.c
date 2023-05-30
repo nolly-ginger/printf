@@ -27,11 +27,12 @@ int print_char(char c, char buffer[], int flags, int width,
 		buffer[BUFF_SIZE - 1] = '\0';
 		for (i = 0; i < width - 1; i++)
 			buffer[BUFF_SIZE - i - 2] = padd;
+
 		if (flags & F_MINUS)
 			return (write(1, &buffer[0], 1) +
 					write(1, &buffer[BUFF_SIZE - i - 1],
 						width - 1));
-		else 
+		else
 			return (write(1, &buffer[BUFF_SIZE - i - 1], width - 1)
 					+ write(1, &buffer[0], 1));
 	}
@@ -56,6 +57,7 @@ int print_number(int is_negative, int index, char buffer[],
 	char padd = ' ', extra_chrs = 0;
 
 	UNUSED(size);
+
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
 		padd = '0';
 	if (is_negative)
@@ -166,8 +168,7 @@ int print_unsigned_number(int is_negative, int index, char buffer[],
 		}
 		else
 		{
-			return (write(1, &buffer[0], i +
-						write(1, buffer[index], len));
+			return (write(1, &buffer[0], i) + write(1, buffer[index], len));
 		}
 	}
 	return (write(1, &buffer[index], len));
@@ -202,8 +203,7 @@ int print_pointer(char buffer[], int index, int length, int width,
 			buffer[--index] = '0';
 			if (extra_chars)
 				buffer[--index] = extra_chars;
-			return (write(1, &buffer[index], length +
-						write(1, &buffer[3], i - 3));
+			return (write(1, &buffer[index], length) + write(1, &buffer[3], i - 3));
 		}
 		else if (!(flags & F_MINUS) && padd == ' ')
 		{
@@ -221,8 +221,7 @@ int print_pointer(char buffer[], int index, int length, int width,
 			buffer[1] = '0';
 			buffer[2] = 'x';
 			return (write(1, &buffer[padd_start], i - padd_start) +
-				write(1, &buffer[index], length -
-						(1 - padd_start) - 2));
+				write(1, &buffer[index], length - (1 - padd_start) - 2));
 		}
 	}
 	buffer[--index] = 'x';
