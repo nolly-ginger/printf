@@ -120,17 +120,17 @@ int integer_argu(va_list types, char buffer[],
 	long int j = va_arg(types, long int);
 	unsigned long int nr;
 
-	j = convert_n(j, size);
+	j = convert_nr(j, size);
 
 	if (j == 0)
 		buffer[i--] = '0';
 
 	buffer[BUFF_SIZE - 1] = '\0';
-	nr = j(unsigned long int);
+	nr = (unsigned long int)j;
 
 	if (j < 0)
 	{
-		nr = ((-1) * j)(unsigned long int);
+		(unsigned long int)((-1) * j);
 		neg_nr = 1;
 	}
 
@@ -141,7 +141,7 @@ int integer_argu(va_list types, char buffer[],
 	}
 	i++;
 
-	return (write(neg_nr, i buffer, flags, width, precision, size));
+	return (print_number(neg_nr, i, buffer, flags, width, precision, size));
 }
 
 /**
