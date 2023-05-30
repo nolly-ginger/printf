@@ -77,5 +77,15 @@ int print_reverse(va_list args, char buffer[], int flags, int width,
 		int precision, int size);
 int print_rot13string(va_list args, char buffer[], int flags, int width,
 		int precision, int size);
+int character(va_list types, char buffer[],
+		int flags, int width, int precision, int size);
+int char_string(va_list types, char buffer[],
+		int flags, int width, int precision, int size);
+int express_percent(va_list types, char buffer[],
+		int flags, int width, int precision, int size);
+int integer_argu(va_list types, char buffer[],
+		int flags, int width, int precision, int size);
+int convert_to_binary(va_list types, char buffer[],
+		int flags, int width, int precision, int size);
 
 #endif /* MAIN_H */
