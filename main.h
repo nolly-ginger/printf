@@ -45,9 +45,6 @@ int print_all(const char *fmt, int index, va_list args, char buf[],
 /* function prototypes */
 int _printf(const char *format, ...);
 void buffer(char array[], int *arr_index);
-int _putchar(char c);
-int printf_i(va_list args);
-int printf_d(va_list args);
 int unsigned_int(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 int octal_int(va_list types, char buffer[],
@@ -77,22 +74,18 @@ int print_reverse(va_list args, char buffer[], int flags, int width,
 		int precision, int size);
 int print_rot13string(va_list args, char buffer[], int flags, int width,
 		int precision, int size);
-<<<<<<< HEAD
 int print_char(char c, char buffer[], int flags, int width,
 		int precision, int size);
 int print_number(int is_negative, int index, char buffer[],
-                int flags, int width, int precision, int size);
-int print_num(int index, char buffer[], int flags, int width,
-                int precision, int length, char padd,
-                char extra_chars);
-int print_unsigned_number(int is_negative, int index, char buffer[],
-                int flags, int width, int precision, int size);
-int print_pointer(char buffer[], int index, int length, int width,
-                int flags, char padd, char extra_chars,
-                int padd_start);
-=======
-int character(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
+int print_num(int index, char buffer[], int flags, int width,
+		int precision, int length, char padd, char extra_chars);
+int print_unsigned_number(int is_negative, int index, char buffer[],
+		int flags, int width, int precision, int size);
+int print_pointer(char buffer[], int index, int length, int width,
+		int flags, char padd, char extra_chars, int padd_start);
+int character(va_list types, char buffer[], int flags, int width,
+		int precision, int size);
 int char_string(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 int express_percent(va_list types, char buffer[],
@@ -101,6 +94,5 @@ int integer_argu(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 int convert_to_binary(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
->>>>>>> efe2de8811f2f5a42b1a8bc6ae2fa7b748519df3
 
 #endif /* MAIN_H */
