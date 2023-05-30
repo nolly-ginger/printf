@@ -22,21 +22,22 @@ int print_pointer(va_list args, char buffer[], int flags,
 
 	UNUSED(width);
 	UNUSED(size);
+
 	if (address_n == NULL)
-		return (write(1, "nil)", 5));
+		return (write(1, "(nil)", 5));
+
 	buffer[BUFF_SIZE - 1] = '\0';
 	UNUSED(precision);
+
 	address = (unsigned long)address_n;
+
 	while (address > 0)
 	{
 		buffer[index--] = hex_map[address % 16];
-<<<<<<< HEAD
 		address /= 16;
-=======
-		n_address /= 16;
->>>>>>> 3f25325b062bacbb57127a71c93440c3cd811f20
 		length++;
 	}
+
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
 		padd_char = '0';
 	if (flags & F_PLUS)
@@ -44,11 +45,8 @@ int print_pointer(va_list args, char buffer[], int flags,
 	else if (flags & F_SPACE)
 		extra_char = ' ', length++;
 	index++;
-<<<<<<< HEAD
+
 	return (write_pointer(buffer, index, length, width, flags,
-=======
-	return (pri_pointer(buffer, index, length, width, flags,
->>>>>>> 3f25325b062bacbb57127a71c93440c3cd811f20
 				padd_char, extra_char, padd_start));
 }
 
@@ -73,14 +71,17 @@ int print_non_printable(va_list args, char buffer[], int flags,
 	UNUSED(width);
 	UNUSED(precision);
 	UNUSED(size);
+
 	if (str == NULL)
-		return (write(1, "(NULL)", 6));
+		return (write(1, "(null)", 6));
+
 	while (str[i] != '\0')
 	{
 		if (is_digit(str[i]))
 			buffer[i + offset] = str[i];
 		else
 			offset += hexa_code(str[i], buffer, i + offset);
+
 		i++;
 	}
 	buffer[i + offset] = '\0';
@@ -107,14 +108,18 @@ int print_reverse(va_list args, char buffer[], int flags,
 	UNUSED(flags);
 	UNUSED(width);
 	UNUSED(size);
+
 	str = va_arg(args, char *);
+
 	if (str == NULL)
 	{
 		UNUSED(precision);
-		str = ")NULL(";
+
+		str = ")Null(";
 	}
 	for (i = 0; str[i]; i++)
 		;
+
 	for (i = i - 1; i >= 0; i--)
 	{
 		char z = str[i];
@@ -152,6 +157,7 @@ int print_rot13string(va_list args, char buffer[], int flags,
 	UNUSED(width);
 	UNUSED(precision);
 	UNUSED(size);
+
 	if (str == NULL)
 		str = "(AHYY)";
 	for (i = 0; str[i]; i++)
@@ -168,6 +174,7 @@ int print_rot13string(va_list args, char buffer[], int flags,
 		}
 		if (!in[j])
 		{
+			x = str[i];
 			write(1, &x, 1);
 			count++;
 		}
