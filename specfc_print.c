@@ -46,7 +46,7 @@ int print_pointer(va_list args, char buffer[], int flags,
 		extra_char = ' ', length++;
 	index++;
 
-	return (write_pointer(buffer, index, length, width, flags,
+	return (pri_pointer(buffer, index, length, width, flags,
 				padd_char, extra_char, padd_start));
 }
 

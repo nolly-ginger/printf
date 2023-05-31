@@ -35,10 +35,10 @@ int _printf(const char *format, ...)
 		else
 		{
 			buffer(c, &arr_index);
-			flags = flag_ch(format, &i);
-			width = width_field(format, &i, j);
-			precision = precision-0(format, &i, j);
-			size = length_mod(format, &i);
+			flags = flag_characters(format, &i);
+			width = width_ch(format, &i, j);
+			precision = _precision(format, &i, j);
+			size = get_size(format, &i);
 			++i;
 			k = print_all(format, &i, j, c, flags, width, precision, size);
 
@@ -62,7 +62,7 @@ int _printf(const char *format, ...)
  */
 void buffer(char array[], int *arr_index)
 {
-	if (*arra_index > 0)
+	if (*arr_index > 0)
 		write(1, &array[0], *arr_index);
 	*arr_index = 0;
 }
