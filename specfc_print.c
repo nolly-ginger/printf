@@ -89,15 +89,16 @@ int print_non_printable(va_list args, char buffer[], int flags,
 }
 /**
  * print_reverse - Prints reverse string specified by the
- * format specifier %r
+ * @format specifier %r
  * @args: list of arguments
  * @buffer: array used for printing
  * @flags: Flags that determine the formatting options
  * @width: wdth specification for the output
  * @precision: precision specification for the output
  * @size: size specifier for the output
- * Return:
+ * Return: characters to be printed
  */
+
 int print_reverse(va_list args, char buffer[], int flags,
 		int width, int precision, int size)
 {
