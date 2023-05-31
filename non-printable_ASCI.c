@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * printable - Check whether the character is printable
+ * is_digit - Check whether the character is printable
  * @p: character to be printed
  *
  * Return: 1 if the character is printable

@@ -122,7 +122,7 @@ int print_num(int index, char buffer[], int flags, int width,
 		else if (!(flags & F_MINUS) && padd == '0')
 		{
 			if (extra_chars)
-				buffer[--padd_start]= extra_chars;
+				buffer[--padd_start] = extra_chars;
 			return (write(1, &buffer[padd_start], i - padd_start)
 					+ write(1, &buffer[index], length - (1 - padd_start)));
 	}
@@ -130,7 +130,6 @@ int print_num(int index, char buffer[], int flags, int width,
 		buffer[--index] = extra_chars;
 	return (write(1, &buffer[index], length));
 }
-
 /**
  * print_unsigned_number - prints an unsigned number value
  * @is_negative: indicator of whether number is negative
@@ -179,9 +178,8 @@ int print_unsigned_number(int is_negative, int index, char buffer[],
 	}
 	return (write(1, &buffer[index], len));
 }
-
 /**
- * print_pointer - handles the printing of a memory address
+ * pri_pointer - handles the printing of a memory address
  * @buffer: array to store number and padding
  * @index: indicates where the number starts in the buffer
  * @length: length of the number being printed
