@@ -20,7 +20,7 @@ int _precision(const char *format, int *index, va_list args)
 	precision = 0;
 	for (next_index += 1; format[next_index] != '\0'; next_index++)
 	{
-		if (is_digit(format[next_index]))
+		if (verify(format[next_index]))
 		{
 			precision *= 10;
 			precision += format[next_index] - '0';

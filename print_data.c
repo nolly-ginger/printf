@@ -112,14 +112,19 @@ int print_num(int index, char buffer[], int flags, int width,
 			return (write(1, &buffer[index], length) +
 					write(1, &buffer[1], i - 1));
 		}
+		else if (!(flags & F_MINUS) && padd == ' ')
+		{
+			if (extra_chars)
+				buffer[--index] = extra_chars;
+			return (write(1, &buffer[1], i - 1)
+					+ write(1, &buffer[index], length));
+		}
 		else if (!(flags & F_MINUS) && padd == '0')
 		{
 			if (extra_chars)
-				buffer[--padd_start] = extra_chars;
+				buffer[--padd_start]= extra_chars;
 			return (write(1, &buffer[padd_start], i - padd_start)
-					+ write(1, &buffer[index], length -
-						(1 - padd_start)));
-		}
+					+ write(1, &buffer[index], length - (1 - padd_start)));
 	}
 	if (extra_chars)
 		buffer[--index] = extra_chars;

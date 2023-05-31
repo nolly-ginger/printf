@@ -12,7 +12,7 @@
  * Return: number of characters printed
  */
 
-int character(va_list types, char buffer[],
+int characters(va_list types, char buffer[],
 		int flags, int width, int precision, int size)
 {
 	char nr = va_arg(types, int);
@@ -96,7 +96,6 @@ int express_percent(va_list types, char buffer[],
 	UNUSED(width);
 	UNUSED(precision);
 	UNUSED(size);
-
 	return (write(1, "%%", 1));
 }
 
@@ -139,7 +138,9 @@ int integer_argu(va_list types, char buffer[],
 		buffer[i--] = (nr % 10) + '0';
 		nr /= 10;
 	}
+
 	i++;
+
 	return (print_number(neg_nr, i, buffer, flags, width, precision, size));
 }
 
@@ -171,13 +172,11 @@ int convert_to_binary(va_list types, char buffer[],
 	j = va_arg(types, unsigned int);
 	l = 2147483648; /* (2 ^ 31) */
 	b[0] = j / l;
-
 	for (i = 1; i < 32; i++)
 	{
 		l /= 2;
 		b[i] = (j / l) % 2;
 	}
-
 	for (i = 0, sum = 0, measurements = 0; i < 32; i++)
 	{
 		sum += b[i];
@@ -189,6 +188,5 @@ int convert_to_binary(va_list types, char buffer[],
 			measurements++;
 		}
 	}
-
 	return (measurements);
 }

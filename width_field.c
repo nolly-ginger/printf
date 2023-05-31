@@ -15,7 +15,7 @@ int width_ch(const char *str, int *argu, va_list list)
 
 	for (i = *argu + 1; str[i] != '\0'; i++)
 	{
-		if (is_digit(str[i]))
+		if (verify(str[i]))
 		{
 			width *= 10;
 			width += str[i] - '0';

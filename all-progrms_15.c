@@ -21,7 +21,7 @@ int print_all(const char *fmt, int *index, va_list args, char buf[],
 	int i, unkwn_len = 0, printed_chars = -1;
 
 	fmt_t fmt_types[] = {
-		{'c', character}, {'s', char_string}, {'%', express_percent},
+		{'c', characters}, {'s', char_string}, {'%', express_percent},
 		{'i', integer_argu}, {'d', integer_argu}, {'b', convert_to_binary},
 		{'u', unsigned_int}, {'o', octal_int}, {'x', int_hex},
 		{'X', upper_hexa_int}, {'p', print_pointer},

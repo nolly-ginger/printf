@@ -49,7 +49,9 @@ int _printf(const char *format, ...)
 		}
 	}
 	buffer(c, &arr_index);
+
 	va_end(j);
+
 	return (p);
 }
 

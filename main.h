@@ -35,6 +35,7 @@ struct fmt
 
 /**
  * typedef struct fmt fmt_t - Inpute for structure operations
+ * @fmt: format
  * @func: Functions associated to the fmt_t
  */
 typedef struct fmt fmt_t;
@@ -52,9 +53,9 @@ int upper_hexa_int(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 int hexa_int(va_list types, char buffer[], char map_to[],
 		int flags, char flag_ch, int width, int precision, int size);
-int is_digit(char p);
-int hexa_code(char code, char array[], int j);
-int verify(char d);
+int is_digit(char);
+int hexa_code(char, char[], int);
+int verify(char);
 long int convert_nr(long int nr, int size);
 long int convert_specific(unsigned long int nr, int size);
 int flag_characters(const char *sent, int *p);
@@ -81,7 +82,7 @@ int print_unsigned_number(int is_negative, int index, char buffer[],
 		int flags, int width, int precision, int size);
 int pri_pointer(char buffer[], int index, int length, int width,
 		int flags, char padd, char extra_chars, int padd_start);
-int character(va_list types, char buffer[], int flags, int width,
+int characters(va_list types, char buffer[], int flags, int width,
 		int precision, int size);
 int char_string(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
