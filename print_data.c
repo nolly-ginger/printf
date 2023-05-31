@@ -71,32 +71,29 @@ int print_number(int is_negative, int index, char buffer[],
 }
 
 /**
- * print_num - helper function used by print_number function,
- * it writes a number using a buffer
+ * print_num - helper function used by print_number function
  * @index: indicates where the number starts in the buffer
  * @buffer: array to store number and padding
  * @flags: indicate formatting options
  * @width: width specifier
- * @precision: precision specifier
+ * @prec: precision specifier
  * @length: length of the number beng printed
  * @padd: charecter used for padding
  * @extra_chars: extra charecters to beincluded in the outpu
  * Return: number of charecters
  */
 int print_num(int index, char buffer[], int flags, int width,
-		int precision, int length, char padd,
-		char extra_chars)
+		int prec, int length, char padd, char extra_chars)
 {
 	int i, padd_start = 1;
 
-	if (precision == 0 && index == BUFF_SIZE - 2 && buffer[index] ==
-			'0' && width == 0)
+	if (prec == 0 && index == BUFF_SIZE - 2 && buffer[index] == '0' && width == 0)
 		return (0);
-	if (precision == 0 && index == BUFF_SIZE - 2 && buffer[index] == '0')
+	if (prec == 0 && index == BUFF_SIZE - 2 && buffer[index] == '0')
 		buffer[index] = padd = ' ';
-	if (precision > 0 && precision < length)
+	if (prec > 0 && prec < length)
 		padd = ' ';
-	while (precision > length)
+	while (prec > length)
 		buffer[--index] = '0', length++;
 	if (extra_chars != 0)
 		length++;
@@ -109,15 +106,13 @@ int print_num(int index, char buffer[], int flags, int width,
 		{
 			if (extra_chars)
 				buffer[--index] = extra_chars;
-			return (write(1, &buffer[index], length) +
-					write(1, &buffer[1], i - 1));
+			return (write(1, &buffer[index], length) + write(1, &buffer[1], i - 1));
 		}
 		else if (!(flags & F_MINUS) && padd == ' ')
 		{
 			if (extra_chars)
 				buffer[--index] = extra_chars;
-			return (write(1, &buffer[1], i - 1)
-					+ write(1, &buffer[index], length));
+			return (write(1, &buffer[1], i - 1) + write(1, &buffer[index], length));
 		}
 		else if (!(flags & F_MINUS) && padd == '0')
 		{
@@ -125,6 +120,7 @@ int print_num(int index, char buffer[], int flags, int width,
 				buffer[--padd_start] = extra_chars;
 			return (write(1, &buffer[padd_start], i - padd_start)
 					+ write(1, &buffer[index], length - (1 - padd_start)));
+		}
 	}
 	if (extra_chars)
 		buffer[--index] = extra_chars;
@@ -191,8 +187,7 @@ int print_unsigned_number(int is_negative, int index, char buffer[],
  * Return: number of chars printed
  */
 int pri_pointer(char buffer[], int index, int length, int width,
-		int flags, char padd, char extra_chars,
-		int padd_start)
+		int flags, char padd, char extra_chars, int padd_start)
 {
 	int i;
 

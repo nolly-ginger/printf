@@ -77,7 +77,7 @@ int print_char(char c, char buffer[], int flags, int width,
 int print_number(int is_negative, int index, char buffer[],
 		int flags, int width, int precision, int size);
 int print_num(int index, char buffer[], int flags, int width,
-		int precision, int length, char padd, char extra_chars);
+		int prec, int length, char padd, char extra_chars);
 int print_unsigned_number(int is_negative, int index, char buffer[],
 		int flags, int width, int precision, int size);
 int pri_pointer(char buffer[], int index, int length, int width,
